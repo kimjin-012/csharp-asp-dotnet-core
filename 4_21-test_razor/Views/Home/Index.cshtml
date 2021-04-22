@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+</head>
+<body>
+    <h1>Whats up Bro!</h1>
+    @{
+        string[] example = new string[]
+            {
+                "Cake",
+                "Fried Rice",
+                "Donuts",
+                "Cake Cake",
+                "Shrimps",
+                "coco"
+            };
+    }
+    <h2>Heres some Food?!</h2>
+    @foreach(string food in example){
+        if(food.StartsWith("C") | food.StartsWith("c")){
+            <p style="color: red;">@food</p>
+        } else {
+            <p>@food</p>
+        }
+    }
+</body>
+</html>

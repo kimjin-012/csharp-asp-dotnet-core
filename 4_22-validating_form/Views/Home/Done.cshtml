@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Result Page";
+}
+@model User
+
+<div class="text-center">
+    <h1 class="display-4">Successfully Registered!</h1>
+    <p>@Model.FirstName</p>
+    <p>@Model.LastName</p>
+    <p>@Model.Age</p>
+    <p>@Model.Email</p>
+    <p>@Model.Password</p>
+    <a href="/">Go back</a>
+</div>

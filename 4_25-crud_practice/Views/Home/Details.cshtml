@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Create Page";
+}
+@model Dish
+
+<div class="card shadow-sm rounded mx-auto w-100">
+    <h1 class="display-4">@Model.DishName</h1>
+    <h2 class="card-text">@Model.ChefName</h2>
+    <a asp-controller="Home" asp-action="Index"> Back to All</a>
+    <hr>
+    <div class="card-body">
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text font-weight-bold">Calories: @Model.Calories</p>
+        <p class="card-text font-weight-bold">Tastiness: @Model.Tastiness</p>
+    </div>
+    <div class="card-footer">
+        <form asp-controller="Home" asp-action="Delete" asp-route-dishId="@Model.DishId" class="d-inline-block" method="POST">
+            <button class="btn btn-outline-danger">Delete</button>
+        </form>
+        @* <a asp-controller="Home" asp-action="Delete" asp-route-dishId="@Model.DishId" class="btn btn-outline-danger">Delete</a> *@
+        <a asp-controller="Home" asp-action="Edit" asp-route-dishId="@Model.DishId" class="btn btn-outline-warning">Edit</a>
+    </div>
+</div>

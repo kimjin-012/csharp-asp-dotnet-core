@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Create Page";
+}
+@model Dish
+
+<div class="container w-100">
+    <h2 class="text-center">Add a New Dish</h2>
+    <a asp-controller="Home" asp-action="Index"> Back to All</a>
+    <form asp-controller="Home" asp-action="Create" method="POST" class="shadow p-3 mb-5 rounded">
+        <div class="form-group">
+            <label asp-for="ChefName"></label>
+            <span asp-validation-for="ChefName" class="text-danger"></span>
+            <input asp-for="ChefName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="DishName"></label>
+            <span asp-validation-for="DishName" class="text-danger"></span>
+            <input asp-for="DishName" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Calories"></label>
+            <span asp-validation-for="Calories" class="text-danger"></span>
+            <input asp-for="Calories" type="number" class="form-control">
+        </div>
+        <div class="form-group">
+            <label asp-for="Tastiness"></label>
+            <span asp-validation-for="Tastiness" class="text-danger"></span>
+            <select asp-for="Tastiness" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <br>
+            <span asp-validation-for="Description" class="text-danger"></span>
+            <textarea asp-for="Description" cols="30" rows="10"></textarea>
+        </div>
+        <button class="btn btn-outline-success">Submit</button>
+    </form>
+</div>

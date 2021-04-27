@@ -1,0 +1,12 @@
+@model Wedding
+<div>
+    <h4>@Model.WedderOne and @Model.WedderTwo</h4>
+    <p>Date : @Model.Date?.ToString("MMMM dd, yyyy")</p>
+    <p>Guests:</p>
+    <ul class="list-group list-group-flush">
+        @foreach(Event person in Model.Assign)
+        {
+            <li class="list-group-item">@person.User.FirstName @person.User.LastName</li>
+        }
+    </ul>
+</div>

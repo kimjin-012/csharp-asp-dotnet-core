@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Wedding>
+
+<div class="container">
+    <h1 class="display-4 text_center">Welcome to the Wedding Planner</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Wedding</th>
+                <th scope="col">Date</th>
+                <th scope="col">Guest</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Wedding item in Model)
+            {
+                <tr>
+                    <td><a asp-controller="Home" asp-action="Detail" asp-route-weddingId="@item.WeddingId" class="btn btn-light">@item.WedderOne & @item.WedderTwo</a></td>
+                    <td>@item.Date?.ToString("MMM/dd/yyyy")</td>
+                    <td>@item.Assign.Count</td>
+                    <td>
+                        @if(item.UserId == Context.Session.GetInt32("UserId"))
+                        {
+                            <form asp-controller="Home" asp-action="DeleteWed" asp-route-weddingId="@item.WeddingId" method="POST">
+                                <button class="btn btn-outline-danger">Delete</button>
+                            </form>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-weddingId="@item.WeddingId"><button class="btn btn-outline-secondary">Edit</button></a>
+                        }
+                        else if(item.Assign.Any(e => e.UserId == Context.Session.GetInt32("UserId")))
+                        {
+                            <form asp-controller="Home" asp-action="RSVP" asp-route-weddingId="@item.WeddingId" method="POST">
+                                <button class="btn btn-outline-warning">Un-RSVP</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Home" asp-action="RSVP" asp-route-weddingId="@item.WeddingId" method="POST">
+                                <button class="btn btn-outline-info">RSVP</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

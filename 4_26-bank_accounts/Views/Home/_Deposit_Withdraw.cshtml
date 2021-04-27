@@ -1,0 +1,8 @@
+@model Transaction
+
+<form asp-controller="Home" asp-action="Action" class="shadow p-3 mb-5 rounded" method="POST">
+    <label asp-for="Amount">Deposit/Withdraw:</label>
+    <span asp-validation-for="Amount"></span>
+    <input asp-for="Amount" type="number"  class="form-control">
+    <button class="btn btn-outline-success">Submit</button>
+</form>

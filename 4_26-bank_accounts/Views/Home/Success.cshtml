@@ -1,0 +1,28 @@
+@model List<Transaction>
+
+<div>
+    <h1 class="display-4">Welcome, @Context.Session.GetString("FirstName")</h1>
+    <p>Current Balance:</p>
+    <p>@String.Format("{0:0.00}", ViewBag.Balance)</p>
+    @{
+        Transaction newAction = new Transaction();
+    }
+    <partial name="_Deposit_Withdraw" model="@newAction"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Transaction action in Model)
+            {
+                <tr>
+                    <th>@String.Format("{0:0.00}", action.Amount)</th>
+                    <th>@action.CreatedAt</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

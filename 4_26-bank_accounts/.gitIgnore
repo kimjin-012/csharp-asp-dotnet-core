@@ -1,0 +1,74 @@
+
+# compiled source #
+
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
+
+!*CommonReferences/*.dll
+
+# VS #
+
+UpgradeLog.XML
+_UpgradeReport_Files/
+
+# Directories #
+
+bin/
+obj/
+TestResults/
+
+# Web publish log #
+
+*.Publish.xml
+
+# Resharper #
+
+/_ReSharper.*
+*.ReSharper.*
+
+# Packages #
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+
+*.log
+*.sqlite
+
+# OS generated files #
+
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+NuGet.exe
+_[Ss]cripts
+*.exe
+*.dll
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
